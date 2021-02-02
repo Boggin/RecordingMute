@@ -39,6 +39,9 @@
 
 .LINK
   https://github.com/Windos/BurntToast
+
+.LINK
+  https://openmoji.org/library/#emoji=1F92B
 #>
 
 [CmdletBinding()]
@@ -47,7 +50,7 @@ PARAM (
   [string]$application
 )
 
-Function ToggleMute {
+Function Set-RecordingMute {
   Begin {
     Import-Module AudioDeviceCmdlets # https://github.com/frgnca/AudioDeviceCmdlets
     Import-Module BurntToast         # https://github.com/Windos/BurntToast
@@ -65,13 +68,13 @@ Function ToggleMute {
 
     Set-AudioDevice -Index $default_recording_device.Index | Out-Null
 
-    SetApplication
     ShowNotification
+    SetApplication
   }
 }
 
 Function ShowNotification {
-  $icon = ".\mewticon.png"
+  $icon = ".\shushing_face.png"
   $isMuted = Get-AudioDevice -RecordingMute
   if ($isMuted) {
     New-BurntToastNotification -Text "Muted" -AppLogo $icon -Silent
@@ -98,4 +101,4 @@ Function SetApplication {
   }
 }
 
-ToggleMute
+Set-RecordingMute
