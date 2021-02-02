@@ -8,10 +8,11 @@ Whatever the state of the microphones they will be toggled so that they can be m
 
 Installing [AudioDeviceCmdlets](https://github.com/frgnca/AudioDeviceCmdlets) must be done by the user.
 
-
 ## PARAMETER Application
 
 If an application name is provided then that application's mute status will also be toggled.
+
+__Nb.__ This is **very** flaky ... Is it Teams or W10 automation?
 
 ## EXAMPLES
 

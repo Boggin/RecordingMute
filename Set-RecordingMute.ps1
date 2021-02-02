@@ -74,7 +74,7 @@ Function Set-RecordingMute {
 }
 
 Function ShowNotification {
-  $icon = ".\shushing_face.png"
+  $icon = Join-Path $PSScriptRoot "shushing_face.png"
   $isMuted = Get-AudioDevice -RecordingMute
   if ($isMuted) {
     New-BurntToastNotification -Text "Muted" -AppLogo $icon -Silent
@@ -100,5 +100,3 @@ Function SetApplication {
     }
   }
 }
-
-Set-RecordingMute
