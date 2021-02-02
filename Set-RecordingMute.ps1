@@ -6,6 +6,8 @@
   Whatever the state of the microphones they will be toggled so that 
   they can be muted or unmuted.
 
+  Installing AudioDeviceCmdlets must be done by the user.
+
 .PARAMETER Application
   If an application name is provided then that application's mute status 
   will also be toggled.
@@ -23,7 +25,7 @@
   Purpose/Change: Initial script development
 
 .EXAMPLE
-  PS C:\> .\Set-RecordingMute.ps1
+  PS> .\Set-RecordingMute.ps1
 
 .EXAMPLE
   Toggle the state of all the microphones and the state in Teams.
@@ -31,6 +33,12 @@
 
 .LINK
   https://github.com/dakota-mewt/mewt
+
+.LINK
+  https://github.com/frgnca/AudioDeviceCmdlets
+
+.LINK
+  https://github.com/Windos/BurntToast
 #>
 
 [CmdletBinding()]
