@@ -24,4 +24,19 @@ Toggle the state of all the microphones and the state in Teams.
 
 ## LINK
 
-Code shamelessly pillaged from [Mewt](https://github.com/dakota-mewt/mewt). 
+Code shamelessly pillaged from [Mewt](https://github.com/dakota-mewt/mewt).
+
+## Running RecordingMute with a Desktop Shortcut
+
+- Copy 'Set-RecordingMute.ps1' to 'Powershell\Modules\RecordingMute\RecordingMute.psm1'
+- Create 'PowerShell\Scripts\Set-RecordingMute.ps1'
+
+    ```PowerShell
+    Import-Module RecordingMute
+    Set-RecordingMute 'Teams'
+    ```
+
+- Create a Desktop Shortcut:
+    - Target: `"path\to\pwsh.exe" -NoProfile -WindowStyle hidden -ExecutionPolicy Bypass -File "path\to\PowerShell\Scripts\Set-RecordingMute.ps1"`
+    - Shortcut key:
+        `Ctrl + Shift + Alt + M`
