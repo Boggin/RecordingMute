@@ -68,12 +68,12 @@ Function Set-RecordingMute {
 
     Set-AudioDevice -Index $default_recording_device.Index | Out-Null
 
-    ShowNotification
-    SetApplication
+    Show-Notification
+    Set-ForegroundApplication $application
   }
 }
 
-Function ShowNotification {
+Function Show-Notification {
   $icon = Join-Path $PSScriptRoot "shushing_face.png"
   $isMuted = Get-AudioDevice -RecordingMute
   if ($isMuted) {
@@ -84,7 +84,11 @@ Function ShowNotification {
   }
 }
 
-Function SetApplication {
+Function Set-ForegroundApplication {
+  PARAM (
+    [string]$application
+  )
+
   Begin {
     Import-Module Pscx
     Add-Type -AssemblyName System.Windows.Forms
@@ -92,9 +96,9 @@ Function SetApplication {
 
   Process {
     if ($application -eq "Teams") {
-      $handles = Get-Process Teams
+      $handles = Get-Process Teams | Where-Object { $_.MainWindowHandle -ne 0 }
       foreach ($handle in $handles) {
-        Set-ForegroundWindow $handle.MainWindowHandle -WarningAction SilentlyContinue
+        Set-ForegroundWindow $handle.MainWindowHandle
       }
       [System.Windows.Forms.SendKeys]::SendWait("^+{m}")
     }
