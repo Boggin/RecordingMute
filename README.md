@@ -12,8 +12,6 @@ Installing [AudioDeviceCmdlets](https://github.com/frgnca/AudioDeviceCmdlets) mu
 
 If an application name is provided then that application's mute status will also be toggled.
 
-__Nb.__ This is **very** flaky ... Is it Teams or W10 automation?
-
 ## EXAMPLES
 
     PS> .\Set-RecordingMute.ps1
@@ -29,6 +27,7 @@ Code shamelessly pillaged from [Mewt](https://github.com/dakota-mewt/mewt).
 ## Running RecordingMute with a Desktop Shortcut
 
 - Copy 'Set-RecordingMute.ps1' to 'Powershell\Modules\RecordingMute\RecordingMute.psm1'
+- Copy 'shushing_face.png' to 'Powershell\Modules\RecordingMute\'
 - Create 'PowerShell\Scripts\Set-RecordingMute.ps1'
 
     ```PowerShell
